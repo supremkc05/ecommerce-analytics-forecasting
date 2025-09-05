@@ -1,4 +1,4 @@
-##E-commerce Sales Analytics & Demand Forecasting##
+## E-commerce Sales Analytics & Demand Forecasting ##
 
 An end-to-end data engineering + analytics + machine learning project that demonstrates how to collect, clean, analyze, and forecast e-commerce sales data.
 
