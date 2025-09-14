@@ -1,0 +1,10 @@
+pandas 
+numpy
+scikit-learn
+matplotlib
+seaborn
+
+# For data extraction from APIs
+requests
+beautifulsoup4
+
