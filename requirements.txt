@@ -8,3 +8,6 @@ seaborn
 requests
 beautifulsoup4
 
+# For database interaction
+sqlalchemy
+psycopg2-binary
