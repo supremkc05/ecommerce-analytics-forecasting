@@ -36,7 +36,7 @@ A complete ETL pipeline that transforms ecommerce transaction data into actionab
 
 That's it! Your data is now processed and ready for analysis.
 
-## 📊 What You'll Get
+##  What You'll Get
 
 After running the pipeline, you'll see outputs like:
 
@@ -56,6 +56,31 @@ ETL Pipeline completed successfully!
 - **Top Performers**: Highest spending customers and best-selling products
 - **Geographic Analysis**: Revenue breakdown by country
 - **Time Trends**: Monthly sales patterns and seasonal insights
+
+## Analytics Overview
+
+### Customer Segmentation
+- **VIP (5.4%)**: 232 customers, £17K+ avg spend - Drive 52% of revenue
+- **Premium (30%)**: 1,298 customers, £2K avg spend - Growth potential  
+- **Regular (59%)**: 2,550 customers, £429 avg spend - Volume base
+- **Basic (5.4%)**: 234 customers, £68 avg spend - New buyers
+
+### Geographic Distribution
+- **🇬🇧 UK**: £6.6M (82.6%) - Dominant market
+- **🇳🇱 Netherlands**: £269K (3.4%) - Growth opportunity
+- **🇮🇪 Ireland**: £242K (3.0%) - Stable market
+- **🇩🇪 Germany**: £190K (2.4%) - Expansion potential
+
+### Top Products
+1. **Paper Craft Little Birdie**: £168K revenue
+2. **Regency Cakestand 3 Tier**: £142K revenue  
+3. **Medium Ceramic Storage Jar**: £81K revenue
+
+### Key Metrics
+- **Total Revenue**: £7.9M across 358K+ transactions
+- **Average Order**: £22.45 per transaction
+- **Peak Season**: November-December (holiday surge)
+- **Product Range**: 2,785 unique items
 
 ## Project Structure
 
@@ -136,4 +161,3 @@ taskkill /F /IM postgres.exe
 
 ---
 
-**🎉 Ready to Go!** Your ecommerce analytics pipeline will transform your sales data into valuable business insights.
