@@ -44,7 +44,7 @@ services:
       - etl_network
     restart: unless-stopped
 
-  # Optional: pgAdmin for database management
+  # pgadmin for databse management
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: ecommerce_pgadmin
