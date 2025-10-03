@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17.6
+    container_name: ecommerce_postgres
+    environment:
+      POSTGRES_DB: ecommerce_analytics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - etl_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ecommerce_analytics"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ETL Application
+  etl_app:
+    build: .
+    container_name: ecommerce_etl
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Database configuration
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ecommerce_analytics
+      DB_USER: postgres
+      DB_PASSWORD: postgres123
+    volumes:
+      - ./data:/app/data:ro
+      - ./logs:/app/logs
+    networks:
+      - etl_network
+    restart: unless-stopped
+
+  # Optional: pgAdmin for database management
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ecommerce_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    networks:
+      - etl_network
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  etl_network:
+    driver: bridge

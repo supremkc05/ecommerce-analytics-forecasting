@@ -3,17 +3,21 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_HOST = os.getenv('DB_HOST', 'localhost')  # Default to localhost if not set
+# Get project root directory (go up 2 levels from src/database)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+DATABASE_HOST = os.getenv('DB_HOST', 'localhost')  
 DATABASE_NAME = os.getenv('DB_NAME', 'ecommerce_analytics')
 DATABASE_USER = os.getenv('DB_USER', 'postgres')
-DATABASE_PASSWORD = os.getenv('DB_PASSWORD')  # No default - must be set!
+DATABASE_PASSWORD = os.getenv('DB_PASSWORD')  
 DATABASE_PORT = int(os.getenv('DB_PORT', 5432))
 
-#paths
-DATA_FILE = os.getenv('DATA_FILE', 'data/data.csv')
+# File paths
+DATA_FILE = os.getenv('DATA_FILE', os.path.join(PROJECT_ROOT, 'data', 'cleaned_data.csv'))
+RAW_DATA_FILE = os.getenv('RAW_DATA_FILE', os.path.join(PROJECT_ROOT, 'data', 'data.csv'))
 BATCH_SIZE = int(os.getenv('BATCH_SIZE', 10000))
 
-#config dictionary
+#config dictionary from env
 DB_CONFIG = {
     'host': DATABASE_HOST,
     'database': DATABASE_NAME,

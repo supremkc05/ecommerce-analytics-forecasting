@@ -4,10 +4,7 @@ from config import DB_CONFIG
 import sys
 
 def create_connection():
-    """
-    Create a connection to PostgreSQL database
-    Returns connection object or None if failed
-    """
+    """database connection with postgres help from the config file"""
     config = DB_CONFIG
     
     try:
@@ -35,7 +32,6 @@ def test_connection():
     
     if conn:
         try:
-            # Create a cursor
             cursor = conn.cursor()
             
             # Test query - get PostgreSQL version
