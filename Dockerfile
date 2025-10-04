@@ -25,11 +25,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy project files
 COPY . .
 
-# Create data directory if it doesn't exist
-RUN mkdir -p /app/data
-
-# Set proper permissions
-RUN chmod +x *.py
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs
 
 # Create non-root user for security
 RUN groupadd -r etluser && useradd -r -g etluser etluser
