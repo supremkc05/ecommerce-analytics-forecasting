@@ -185,7 +185,7 @@ class RobustETL:
             
             for table in tables_to_clear:
                 cursor.execute(f"DELETE FROM {table}")
-                logger.info(f"🧹 Cleared {table} table")
+                logger.info(f"Cleared {table} table")
             
             self.conn.commit()
             cursor.close()
@@ -505,7 +505,7 @@ def main():
         print(" Data has been loaded into your PostgreSQL database.")
         print("You can now view the data in pgAdmin or run queries.")
     else:
-        print("\ETL process failed. Check the logs above for details.")
+        print("ETL process failed. Check the logs above for details.")
         sys.exit(1)
 
 if __name__ == "__main__":
