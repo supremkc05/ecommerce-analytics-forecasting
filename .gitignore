@@ -2,3 +2,5 @@ venv
 .env
 .dockerignore
 rem.txt
+notebooks/analysis.ipynb
+data/powerbi_exports
