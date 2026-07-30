@@ -152,12 +152,3 @@ taskkill /F /IM postgres.exe
 # Or change port in docker-compose.yml
 ```
 
-### Tips for Success
-
-- Ensure Docker has at least 4GB RAM allocated
-- Place your CSV file in the `data/` directory
-- Check logs if something goes wrong: `docker-compose logs`
-- Use `docker-compose down -v` for a clean restart
-
----
-
